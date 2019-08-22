@@ -11,20 +11,30 @@ import { connect } from 'react-redux';
 //     </div>
 // }
 
-const mapStateToProps = state => ({ num: state });
+const mapStateToProps = state => ({ num: state.btnReducer.num, loading: state.btnReducer.loading });
 const mapDispatchToProps = {
     add: () => ({ type: 'add' }),
-    minus: () => ({ type: 'minus' })
+    minus: () => ({ type: 'minus' }),
+    addAsync: () => dispatch => {
+        dispatch({ type: 'loading', loading: true });
+        setTimeout(() => {
+            dispatch({ type: 'loading', loading: false });
+            dispatch({ type: 'addAsync' });
+        }, 2000);
+    }
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 class ReduxDemo extends React.Component {
     render() {
-        const { num, add, minus } = this.props;
+        const { num, loading, add, minus, addAsync } = this.props;
         return <div>
             <Button onClick={minus}>-</Button>
-            <p>{num}</p>
+            <span>{num}</span>
             <Button onClick={add}>+</Button>
+            <Button onClick={addAsync}>
+                { loading ? '...' : 'addAsync' }
+            </Button>
         </div>
     }
 }
