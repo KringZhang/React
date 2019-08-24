@@ -6,6 +6,7 @@ import UseState from './components/UseState.js';
 import ContextDemo from './components/ContextDemo.js';
 import AntdForm from './components/AntdForm.js';
 import Redux from './components/Redux';
+import ReactRouter from './components/ReactRouter';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -21,7 +22,8 @@ export default class App extends Component{
                 <UseState></UseState>
                 <ContextDemo></ContextDemo> */}
                 {/* <AntdForm></AntdForm> */}
-                <Redux></Redux>
+                {/* <Redux></Redux> */}
+                <ReactRouter></ReactRouter>
             </Provider>
         </div>
     }
