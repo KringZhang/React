@@ -7,6 +7,7 @@ import ContextDemo from './components/ContextDemo.js';
 import AntdForm from './components/AntdForm.js';
 import Redux from './components/Redux';
 import ReactRouter from './components/ReactRouter';
+import LayoutDemo from './components/LayoutDemo';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -23,7 +24,8 @@ export default class App extends Component{
                 <ContextDemo></ContextDemo> */}
                 {/* <AntdForm></AntdForm> */}
                 {/* <Redux></Redux> */}
-                <ReactRouter></ReactRouter>
+                {/* <ReactRouter></ReactRouter> */}
+                <LayoutDemo></LayoutDemo>
             </Provider>
         </div>
     }
