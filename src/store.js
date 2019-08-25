@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { userReducer } from './userReducer';
 
 const reducer = (defaultState = { num: 1, loading: false }, action) => {
     switch(action.type) {
@@ -30,7 +31,8 @@ const reducer = (defaultState = { num: 1, loading: false }, action) => {
 }
 
 const store = createStore(combineReducers({
-    btnReducer: reducer
+    btnReducer: reducer,
+    userReducer: userReducer
 }), applyMiddleware(logger, thunk));
 
 export default store;
